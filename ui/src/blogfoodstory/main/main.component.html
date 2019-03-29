@@ -1,0 +1,19 @@
+<mat-toolbar class="toolbar-color">
+  <span>
+    <img src="assets/images/food.png" class="image-icon"/>
+  </span>
+  <div *ngFor="let cat of categoriesList" class="example-fill-remaining-space">
+      <button mat-raised-button color="primary" [matMenuTriggerFor]="menu.childMenu" (click)="onClickMenu($event)">
+        {{cat.name}}
+      </button>
+      <app-menu-item #menu [items]="cat.subCategories"></app-menu-item>
+  </div>
+  <button mat-button>Add new recipe</button>
+</mat-toolbar>
+
+<router-outlet></router-outlet>
+
+<mat-toolbar class="toolbar-color-down">
+  <span class="example-fill-remaining-space"></span>
+  <span>Danescu Oana-Elena</span>
+</mat-toolbar>

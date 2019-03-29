@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="blog.food.story.food">
+
+    <resultMap id="categoriesMap" type="Category">
+        <id column="category_id" property="id"/>
+        <result column="category_name" property="name"/>
+        <collection property="subCategories" ofType="SubCategory">
+            <id property="id" column="sub_id"/>
+            <result property="name" column="sub_name" />
+        </collection>
+    </resultMap>
+
+   <select id="loadCategoriesWithSubCategories" resultMap="categoriesMap">
+      SELECT cat.id AS category_id,
+              cat.name AS category_name,
+              sub.id AS sub_id,
+              sub.name AS sub_name
+              FROM categories AS cat
+              INNER JOIN sub_categories sub on cat.id = sub.category_id
+   </select>
+</mapper>

@@ -1,0 +1,97 @@
+CREATE DATABASE blogfoodstory;
+
+\c namedatabasewhich you want to use
+
+CREATE SEQUENCE seq__sub_categories_id start 1 increment 1;
+CREATE SEQUENCE seq__categories_id start 1 increment 1;
+
+CREATE TABLE categories(
+ID INT PRIMARY KEY NOT NULL,
+NAME TEXT NOT NULL
+);
+
+CREATE TABLE sub_categories(
+ID INT PRIMARY KEY NOT NULL,
+NAME TEXT NOT NULL,
+CATEGORY_ID INT NOT NULL,
+FOREIGN KEY (CATEGORY_ID) REFERENCES categories(ID)
+);
+------------------------------------------------------------>
+INSERT INTO categories(ID, NAME)
+values(nextval('seq__categories_id'), 'Vegan');
+
+INSERT INTO categories(ID, NAME)
+values(nextval('seq__categories_id'), 'Gluten free');
+
+INSERT INTO categories(ID, NAME)
+values(nextval('seq__categories_id'), 'Carnivor');
+
+INSERT INTO categories(ID, NAME)
+values(nextval('seq__categories_id'), 'No meat dishes');
+
+INSERT INTO categories(ID, NAME)
+values(nextval('seq__categories_id'), 'Sweets');
+
+INSERT INTO categories(ID, NAME)
+values(nextval('seq__categories_id'), 'Salads');
+------------------------------------------------------------->
+INSERT INTO sub_categories(ID, NAME, CATEGORY_ID)
+values(nextval('seq__sub_categories_id'), 'Vegan smoothies' , 1);
+
+INSERT INTO sub_categories(ID, NAME, CATEGORY_ID)
+values(nextval('seq__sub_categories_id'), 'Sweet smoothies' , 5);
+
+INSERT INTO sub_categories(ID, NAME, CATEGORY_ID)
+values(nextval('seq__sub_categories_id'), 'Vegan pies' , 1);
+
+INSERT INTO sub_categories(ID, NAME, CATEGORY_ID)
+values(nextval('seq__sub_categories_id'), 'Gluten free pies' , 2);
+
+INSERT INTO sub_categories(ID, NAME, CATEGORY_ID)
+values(nextval('seq__sub_categories_id'), 'Meat pies' , 3);
+
+INSERT INTO sub_categories(ID, NAME, CATEGORY_ID)
+values(nextval('seq__sub_categories_id'), 'Sweet pies' , 5);
+
+INSERT INTO sub_categories(ID, NAME, CATEGORY_ID)
+values(nextval('seq__sub_categories_id'), 'Vegan biscuits' , 1);
+
+INSERT INTO sub_categories(ID, NAME, CATEGORY_ID)
+values(nextval('seq__sub_categories_id'), 'Gluten free biscuits' , 2);
+
+INSERT INTO sub_categories(ID, NAME, CATEGORY_ID)
+values(nextval('seq__sub_categories_id'), 'Salty biscuits' , 4);
+
+INSERT INTO sub_categories(ID, NAME, CATEGORY_ID)
+values(nextval('seq__sub_categories_id'), 'Biscuits' , 5);
+
+INSERT INTO sub_categories(ID, NAME, CATEGORY_ID)
+values(nextval('seq__sub_categories_id'), 'No gluten meat balls' , 2);
+
+INSERT INTO sub_categories(ID, NAME, CATEGORY_ID)
+values(nextval('seq__sub_categories_id'), 'Meat balls' , 3);
+
+INSERT INTO sub_categories(ID, NAME, CATEGORY_ID)
+values(nextval('seq__sub_categories_id'), 'Vegan salty cakes' , 1);
+
+INSERT INTO sub_categories(ID, NAME, CATEGORY_ID)
+values(nextval('seq__sub_categories_id'), 'Salty cakes' , 2);
+
+INSERT INTO sub_categories(ID, NAME, CATEGORY_ID)
+values(nextval('seq__sub_categories_id'), 'Vegan cakes' , 1);
+
+INSERT INTO sub_categories(ID, NAME, CATEGORY_ID)
+values(nextval('seq__sub_categories_id'), 'Gluten free cakes' , 2);
+
+INSERT INTO sub_categories(ID, NAME, CATEGORY_ID)
+values(nextval('seq__sub_categories_id'), 'Cakes' , 5);
+
+INSERT INTO sub_categories(ID, NAME, CATEGORY_ID)
+values(nextval('seq__sub_categories_id'), 'Salads' , 6);
+
+INSERT INTO sub_categories(ID, NAME, CATEGORY_ID)
+values(nextval('seq__sub_categories_id'), 'Salad dressings' , 6);
+
+
+
+
