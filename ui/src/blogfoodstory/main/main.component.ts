@@ -17,10 +17,4 @@ export class MainComponent implements OnInit {
   ngOnInit() {
     this.foodService.loadCategories().subscribe(categories => this.categoriesList = categories);
   }
-
-  onClickMenu($event: any ) {
-    debugger;
-    this.clientX = $event.clientX;
-    this.clientY = $event.clientY;
-  }
 }

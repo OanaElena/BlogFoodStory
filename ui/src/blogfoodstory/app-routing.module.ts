@@ -1,6 +1,7 @@
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {HomeComponent} from "./home/home.component";
+import {AddRecipeComponent} from "./add-recipe/add-recipe.component";
 
 const routes: Routes = [
   /*  {path: 'atena', component: MainComponent,
@@ -13,6 +14,7 @@ const routes: Routes = [
   // {path: "playlist-page", component: PlaylistComponent},
   // {path: "youtube-page", component: YoutubeComponent},
   // {path: "youtube-search", component: SearchYoutubeComponent},
+  {path: "add-recipe", component: AddRecipeComponent},
   {path: "home", component: HomeComponent},
   {path: '**', redirectTo: 'home'}
 ];

@@ -1,1 +1,22 @@
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+
+html {
+  height: 100%;
+}
+
+body {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  padding-left: 200px;
+  padding-right: 200px;
+  /*text-rendering: optimizeLegibility;*/
+  /*position: relative;*/
+  /*min-height: 100%;*/
+  /*-webkit-font-smoothing: antialiased;*/
+  /*-moz-osx-font-smoothing: grayscale;*/
+  /*font-family: 'Courier New', sans-serif;*/
+  /*font-weight: normal;*/
+  /*font-size: 1.5em;*/
+  /*background: linear-gradient(150deg,#FFFBD9 15%,#7FFF00 70%,	#7FFF00 94%);*/
+}

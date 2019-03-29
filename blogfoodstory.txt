@@ -94,4 +94,165 @@ values(nextval('seq__sub_categories_id'), 'Salad dressings' , 6);
 
 
 
+----------------------------------------------------------------------->
 
+
+CREATE SEQUENCE seq__tags_id start 1 increment 1;
+
+CREATE TABLE tags(
+ID INT PRIMARY KEY NOT NULL,
+NAME TEXT NOT NULL
+);
+
+INSERT INTO tags(ID, NAME)
+values(nextval('seq__tags_id'), 'protein');
+
+INSERT INTO tags(ID, NAME)
+values(nextval('seq__tags_id'), 'calcium');
+
+INSERT INTO tags(ID, NAME)
+values(nextval('seq__tags_id'), 'green');
+
+INSERT INTO tags(ID, NAME)
+values(nextval('seq__tags_id'), 'vegetables');
+
+INSERT INTO tags(ID, NAME)
+values(nextval('seq__tags_id'), 'no sugar');
+
+INSERT INTO tags(ID, NAME)
+values(nextval('seq__tags_id'), 'light');
+
+INSERT INTO tags(ID, NAME)
+values(nextval('seq__tags_id'), 'diary free');
+
+INSERT INTO tags(ID, NAME)
+values(nextval('seq__tags_id'), 'glucose');
+
+INSERT INTO tags(ID, NAME)
+values(nextval('seq__tags_id'), 'vegan');
+
+INSERT INTO tags(ID, NAME)
+values(nextval('seq__tags_id'), 'veggie');
+
+INSERT INTO tags(ID, NAME)
+values(nextval('seq__tags_id'), 'vegetarian');
+
+INSERT INTO tags(ID, NAME)
+values(nextval('seq__tags_id'), 'no heat');
+
+
+------------------------------------------------------>
+
+CREATE SEQUENCE seq__unit_id start 1 increment 1;
+
+CREATE TABLE units(
+ID INT PRIMARY KEY NOT NULL,
+NAME TEXT NOT NULL
+);
+
+INSERT INTO units(ID, NAME)
+values(nextval('seq__unit_id'), 'g');
+
+INSERT INTO units(ID, NAME)
+values(nextval('seq__unit_id'), 'kg');
+
+INSERT INTO units(ID, NAME)
+values(nextval('seq__unit_id'), 'ml');
+
+INSERT INTO units(ID, NAME)
+values(nextval('seq__unit_id'), 'l');
+
+
+
+--------------------------------------------------------------->
+
+CREATE SEQUENCE seq__ingredients_id start 1 increment 1;
+
+CREATE TABLE ingredients(
+ID INT PRIMARY KEY NOT NULL,
+NAME TEXT NOT NULL,
+UNIT_ID INT NOT NULL,
+QUANTITY NUMERIC NOT NULL,
+PROTEINS NUMERIC NOT NULL,
+LIPIDS NUMERIC NOT NULL,
+CARBOHYDRATES NUMERIC NOT NULL,
+FOREIGN KEY (UNIT_ID) REFERENCES units(ID)
+);
+
+INSERT INTO ingredients(ID, NAME, UNIT_ID, QUANTITY, PROTEINS, LIPIDS, CARBOHYDRATES)
+values(nextval('seq__ingredients_id'), 'Chicken egg', 1, 50, 6.3, 0.4, 4.95);
+
+INSERT INTO ingredients(ID, NAME, UNIT_ID, QUANTITY, PROTEINS, LIPIDS, CARBOHYDRATES)
+values(nextval('seq__ingredients_id'), 'White flower 650', 1, 100, 10, 0.9, 73.6);
+
+INSERT INTO ingredients(ID, NAME, UNIT_ID, QUANTITY, PROTEINS, LIPIDS, CARBOHYDRATES)
+values(nextval('seq__ingredients_id'), 'Oat flakes', 1, 100, 13.5, 7, 59.2);
+
+INSERT INTO ingredients(ID, NAME, UNIT_ID, QUANTITY, PROTEINS, LIPIDS, CARBOHYDRATES)
+values(nextval('seq__ingredients_id'), 'Hrisca flakes', 1, 100, 11, 3, 73.3);
+
+INSERT INTO ingredients(ID, NAME, UNIT_ID, QUANTITY, PROTEINS, LIPIDS, CARBOHYDRATES)
+values(nextval('seq__ingredients_id'), 'Olive oil', 3, 100, 0, 92, 0);
+
+
+----------------------------------------------------------------------------------------------->
+
+
+CREATE SEQUENCE seq__recipes_id start 1 increment 1;
+
+CREATE TABLE recipes(
+ID INT PRIMARY KEY NOT NULL,
+TITLE TEXT NOT NULL,
+SUB_CATEGORY_ID INT NOT NULL,
+OBSERVATIONS TEXT NULL,
+ADDED_DATE DATE NOT NULL,
+COVER_PHOTO BYTEA NOT NULL,
+FILE_NAME TEXT NOT NULL,
+FOREIGN KEY (SUB_CATEGORY_ID) REFERENCES sub_categories(ID)
+);
+
+
+
+-------------------------------------------------------------------------------------------------------->
+
+CREATE SEQUENCE seq__recipe_tag_id start 1 increment 1;
+
+CREATE TABLE recipe_tags(
+ID INT PRIMARY KEY NOT NULL,
+RECIPE_ID INT NOT NULL,
+TAG_ID INT NOT NULL,
+FOREIGN KEY (RECIPE_ID) REFERENCES recipes(ID),
+FOREIGN KEY (TAG_ID) REFERENCES tags(ID)
+);
+
+
+
+-------------------------------------------------------------------------------------------------------------->
+
+
+CREATE SEQUENCE seq__recipe_ingredients_id start 1 increment 1;
+
+CREATE TABLE recipe_ingredients(
+ID INT PRIMARY KEY NOT NULL,
+RECIPE_ID INT NOT NULL,
+INGREDIENT_ID INT NOT NULL,
+CALORIES NUMERIC NOT NULL,
+QUANTITY NUMERIC NOT NULL,
+FOREIGN KEY (RECIPE_ID) REFERENCES recipes(ID),
+FOREIGN KEY (INGREDIENT_ID) REFERENCES ingredients(ID)
+);
+
+
+-------------------------------------------------------------------------------------------------------->
+
+CREATE SEQUENCE seq__recipe_steps_id start 1 increment 1;
+
+CREATE TABLE recipe_steps(
+ID INT PRIMARY KEY NOT NULL,
+RECIPE_ID INT NOT NULL,
+STEP_ORDER_ID INT NOT NULL,
+STEP_DESCRIPTION TEXT NOT NULL,
+COVER_PHOTO BYTEA NULL,
+FILE_NAME TEXT NULL,
+FOREIGN KEY (RECIPE_ID) REFERENCES recipes(ID)
+);

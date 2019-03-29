@@ -8,19 +8,23 @@ import {AppRoutingModule} from "./app-routing.module";
 import {HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { MenuItemComponent } from './menu-item/menu-item.component';
+import { AddRecipeComponent } from './add-recipe/add-recipe.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
     MainComponent,
     HomeComponent,
-    MenuItemComponent
+    MenuItemComponent,
+    AddRecipeComponent
   ],
   imports: [
     BrowserModule,
     MaterialModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [MainComponent]

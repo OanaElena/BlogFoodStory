@@ -3,12 +3,17 @@
     <img src="assets/images/food.png" class="image-icon"/>
   </span>
   <div *ngFor="let cat of categoriesList" class="example-fill-remaining-space">
-      <button mat-raised-button color="primary" [matMenuTriggerFor]="menu.childMenu" (click)="onClickMenu($event)">
+      <button mat-raised-button color="primary" [matMenuTriggerFor]="menu.childMenu">
         {{cat.name}}
       </button>
       <app-menu-item #menu [items]="cat.subCategories"></app-menu-item>
   </div>
-  <button mat-button>Add new recipe</button>
+  <button mat-raised-button color="primary" [matMenuTriggerFor]="menuAdd">Add</button>
+  <mat-menu #menuAdd="matMenu" [overlapTrigger]="false">
+    <button mat-menu-item color="primary"><a [routerLink]="['/add-recipe']" >New recipe</a></button>
+    <button mat-menu-item color="primary"><span>New ingredient</span></button>
+    <button mat-menu-item color="primary"><span>New sub/category</span></button>
+  </mat-menu>
 </mat-toolbar>
 
 <router-outlet></router-outlet>
