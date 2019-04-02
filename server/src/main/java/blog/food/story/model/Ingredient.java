@@ -5,7 +5,7 @@ public class Ingredient {
     private Long id;
     private String name;
     private Unit unit;
-    private Double cantity;
+    private Double quantity;
     private Double proteins;
     private Double carbohydrates;
     private Double lipids;
@@ -34,12 +34,12 @@ public class Ingredient {
         this.unit = unit;
     }
 
-    public Double getCantity() {
-        return cantity;
+    public Double getQuantity() {
+        return quantity;
     }
 
-    public void setCantity(Double cantity) {
-        this.cantity = cantity;
+    public void setQuantity(Double quantity) {
+        this.quantity = quantity;
     }
 
     public Double getProteins() {

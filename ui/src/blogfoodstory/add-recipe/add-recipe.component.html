@@ -1,6 +1,30 @@
 <h1>Add new recipe</h1>
 
 <form [formGroup]="recipeForm" style="margin:0;">
+  <mat-label>Cover picture</mat-label><br>
+  <mat-label>Ingredients</mat-label>
+
+  <div style="display: flex; justify-content: space-between;}">
+    <mat-nav-list class="nav-list-ingredient">
+      <mat-list-item *ngFor="let ingred of ingredientsList" [formGroup]="recipeForm.get('ingredientList')">
+        - &nbsp; <input style="width:40px;" formControlName = "ingredientQuantity"/>
+        {{ingred.unit?.name}} &nbsp; {{ingred.name}}
+        <mat-icon type="button" (click)="deleteIngredient(ingred.id)">delete</mat-icon>
+      </mat-list-item>
+    </mat-nav-list>
+
+    <mat-form-field class="add-ingredient-dropdown">
+      <mat-label>Add ingredient</mat-label>
+      <mat-select (selectionChange)="foodSelectionChange($event)">
+        <mat-option *ngFor="let food of alreadyExistingIngredients" [value]="food.id">
+          {{food.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <mat-label>Steps to follow</mat-label><br>
+
+  <mat-label>Tag list</mat-label><br>
 <!--  <mat-form-field>-->
 <!--    <input type="text" placeholder="Name:"  matInput formControlName="name">-->
 <!--  </mat-form-field>-->

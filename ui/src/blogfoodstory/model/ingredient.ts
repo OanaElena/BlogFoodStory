@@ -4,7 +4,7 @@ export class Ingredient{
   id: number;
   name: string;
   unit: Unit;
-  cantity: number;
+  quantity: number;
   proteins: number;
   carbohydrates: number;
   lipids: number;
