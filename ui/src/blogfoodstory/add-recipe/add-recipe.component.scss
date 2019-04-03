@@ -1,0 +1,31 @@
+.add-ingredient-dropdown{
+  position:absolute;
+  left: 500px;
+}
+
+.nav-list-ingredient{
+  border-style: solid;
+  border-color: antiquewhite;
+  width: 250px;
+  height:300px;
+  overflow-y: scroll;
+}
+
+.input-no-border{
+  width:40px;
+  border: none;
+}
+
+.nav-list-steps{
+  border-style: solid;
+  border-color: antiquewhite;
+
+  .mat-list-item-content{
+    flex-direction: column;
+  }
+}
+
+.textarea-step-description{
+  width: 1000px;
+  height:100px;
+}

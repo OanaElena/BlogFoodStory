@@ -23,9 +23,16 @@
     </mat-form-field>
   </div>
   <mat-label>Steps to follow</mat-label><br>
-
-  <mat-label>Tag list</mat-label><br>
-<!--  <mat-form-field>-->
-<!--    <input type="text" placeholder="Name:"  matInput formControlName="name">-->
-<!--  </mat-form-field>-->
+  <button (click)="addNewStep()">Add step</button>
+  <mat-nav-list class="nav-list-steps">
+    <mat-list-item *ngFor="let item of formRecipe.controls; let i=index;" formArrayName="stepsList" style="height: 180px;">
+      <div [formGroupName]="i">
+          <span>Step{{i+1}}</span>&nbsp;
+          <textarea formControlName="stepDescription" class="textarea-step-description"></textarea>
+          <input type="file" formControlName="coverPhoto">
+      </div>
+    </mat-list-item>
+  </mat-nav-list>
+  <br><mat-label>Tag list</mat-label><br>
+  <button type="submit">Add recipe on site</button>
 </form>
