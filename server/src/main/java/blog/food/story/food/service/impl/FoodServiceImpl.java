@@ -4,6 +4,7 @@ import blog.food.story.food.dao.FoodDao;
 import blog.food.story.food.service.FoodService;
 import blog.food.story.model.Category;
 import blog.food.story.model.Ingredient;
+import blog.food.story.model.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,5 +32,10 @@ public class FoodServiceImpl implements FoodService {
     @Override
     public Ingredient loadIngredientById(Long id) {
         return foodDao.loadIngredientById(id);
+    }
+
+    @Override
+    public List<Tag> loadAllTags() {
+        return foodDao.loadTags();
     }
 }

@@ -61,4 +61,15 @@
              ON ingre.unit_id = unit.id
              WHERE ingre.id = #{id}
    </select>
+
+    <resultMap id="tagsMap" type="Tag">
+        <id column="tag_id" property="id"/>
+        <result column="tag_name" property="name"/>
+    </resultMap>
+
+    <select id="loadAllTags" resultMap="tagsMap">
+      SELECT id AS tag_id,
+            name AS tag_name
+            FROM tags
+   </select>
 </mapper>

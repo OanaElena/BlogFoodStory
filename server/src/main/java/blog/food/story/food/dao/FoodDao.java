@@ -2,11 +2,13 @@ package blog.food.story.food.dao;
 
 import blog.food.story.model.Category;
 import blog.food.story.model.Ingredient;
+import blog.food.story.model.Tag;
 
 import java.util.List;
 
 public interface FoodDao {
-    public List<Category> loadAllCategories();
-    public List<Ingredient> loadAllIngredients();
-    public Ingredient loadIngredientById(Long id);
+    List<Category> loadAllCategories();
+    List<Ingredient> loadAllIngredients();
+    Ingredient loadIngredientById(Long id);
+    List<Tag> loadTags();
 }

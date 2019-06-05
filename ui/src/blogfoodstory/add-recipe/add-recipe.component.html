@@ -13,7 +13,7 @@
       </mat-list-item>
     </mat-nav-list>
 
-    <mat-form-field class="add-ingredient-dropdown">
+    <mat-form-field class="add-ingredient-dropdown" style="position:absolute;">
       <mat-label>Add ingredient</mat-label>
       <mat-select (selectionChange)="foodSelectionChange($event)">
         <mat-option *ngFor="let food of alreadyExistingIngredients" [value]="food.id">

@@ -17,8 +17,6 @@ export class AddRecipeComponent implements OnInit {
   recipeForm: FormGroup;
   ingredientsList: Ingredient[] = [];
   alreadyExistingIngredients: Ingredient[];
-  stepRecipeList: StepRecipes[] = [];
-  stepOrderId = 0;
   items: FormArray;
 
   constructor(private fb: FormBuilder,
