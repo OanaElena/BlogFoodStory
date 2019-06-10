@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * I have added a comment for git rebase master into branch --with conflicts
+ * I have added a comment for git rebase master into branch --with conflicts new
  */
 @RestController
 @RequestMapping("/food")
