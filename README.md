@@ -10,3 +10,5 @@ then use the script from blogfoodstory.txt
 
 
 un nou commit
+
+alt commit cu conflict rezolvare
