@@ -7,3 +7,6 @@ docker exec -it postgresql-blog-food bash
 psql -U postgres
 
 then use the script from blogfoodstory.txt
+
+
+ale mele
