@@ -10,6 +10,4 @@ then use the script from blogfoodstory.txt
 
 
 
-for conflict
-
-ale mele
+alt commit cu conflict rezolvare
