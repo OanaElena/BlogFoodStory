@@ -9,7 +9,4 @@ psql -U postgres
 then use the script from blogfoodstory.txt
 
 
-
-for conflict
-
-ale mele
+un nou commit
